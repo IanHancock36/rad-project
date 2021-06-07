@@ -1,14 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import {StyleSheetText, View ,text} from 'react-native';
+import {StyleSheet, View ,Text , Image, } from 'react-native';
 
 const  App = () => {
   return (
-    <View >
-      <Text>Hey JOe  </Text>
-     
+    <View style={styles.container}>
+      <Text style={styles.text}>Hey JOE  </Text>
+     <Image source ={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}}
+     style={styles.img}
+     />
     </View>
   );
 }
+ const styles = StyleSheet.create({
+   container :{
+    flex:1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  text:{
+    color: 'darkslateblue',
+    fontSize: 30, 
 
+  },
+  img:{
+    width: 100, 
+    height: 100, 
 
+  }
+ })
+
+export default App;
