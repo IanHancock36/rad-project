@@ -1,14 +1,16 @@
 import {Ionicons} from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'; 
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, } from 'react-native';
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item,  deleteItem,}) => {
 	return (
 		<TouchableOpacity style={styles.listItem}>
 			<View style={styles.listItemView}>
 				<Text style={styles.listItemText}>{item.text} </Text>
-				<FontAwesome name="remove" size={20} color="red" />
+				<FontAwesome name="remove" size={20} color="red"
+				  onPress={() => deleteItem(item.id)}
+				  />
 	
 				
 			</View>
