@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'; 
-const AddItem = ({addItem}) => {
+
+const AddItem = ({title, addItem}) => {
     const [text, setText]= useState('')
-    const onChange =textValue => {
+    
+    const onChange = (textValue) => {
         setText(textValue)
     }
     return (
@@ -17,7 +19,9 @@ const AddItem = ({addItem}) => {
 
                 
                 />
-                <TouchableOpacity style ={styles.button} >
+                <TouchableOpacity style ={styles.button} onPress={()=>{
+                    addItem(text)
+                }}>
                     <Text style = {styles.buttonText}>
                     <FontAwesome name="plus-square" size={24} color="black" />
                     Add Item
