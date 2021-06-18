@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { StyleSheet, View, Text, Image ,FlatList } from 'react-native';
+import { StyleSheet, View, Text, Image ,FlatList ,Alert} from 'react-native';
 import Header from './Components/Header';
 import AddItem from './Components/AddItem'; 
 import ListItem from './Components/ListItem'
@@ -27,9 +27,18 @@ const App = () => {
       };
         // want to return an array with original items + the new object to that array so must add an {} object.       const addItem = item => {
         const addItem = text =>{
-        setItems(prevItems => {
-          return [{id:uuidv4(), text }, ...prevItems]
-        })
+          if(!text){
+           Alert.alert('Error','Please enter an item', {text: 'OK'})
+
+          } else{
+            setItems(prevItems => {
+              return [{id:uuidv4(), text }, ...prevItems]
+            })
+
+          }
+
+
+       
       }
   return (
     <View style={styles.container}>
